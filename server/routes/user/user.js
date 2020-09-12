@@ -10,14 +10,14 @@ const options = {
   endpoint: "https://dev.sparkpost.com:443",
 };
 const client = new SparkPost(
-  "a193744fa3e4eb2386351a0c5e39aefb732bb13e",
+  "API_KEY",
   options
 );
 /***********  Backup Mail ************/
 
-const api_key = "2883fd2f88d07523459b86e5c0822317-0f472795-8d8df013";
+const api_key = "API_KEY";
 const DOMAIN =
-  "https://app.mailgun.com/app/sending/domains/sandbox1e1c161b2b95402a9206d4457e6dad48.mailgun.org";
+  "Domain NAme";
 const mg = require("mailgun-js")({
   apiKey: api_key,
   domain: DOMAIN,
