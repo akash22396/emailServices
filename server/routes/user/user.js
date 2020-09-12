@@ -72,8 +72,7 @@ function mailGun(to, subject, message) {
     text: `${message}`,
   };
   
-  let sendMail = mg.messages()
- let sm = sendMail.send(data, function (error, body) {
+  let sendMail = mg.messages().send(data, function (error, body) {
     if (error) {
       console.log(error);
       return 'error'
@@ -83,7 +82,7 @@ function mailGun(to, subject, message) {
     }
   });
 
-  return sm
+  return sendMail
 }
 
 
