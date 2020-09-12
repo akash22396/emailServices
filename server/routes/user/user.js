@@ -67,7 +67,6 @@ function mailGun(to, subject, message) {
   const data = {
     from:
       "Mailgun Sandbox <postmaster@sandbox1e1c161b2b95402a9206d4457e6dad48.mailgun.org>",
-      // from:'Akash <akash.singh22396@gmail.com>',
     to: `${to}`,
     subject: `${subject}`,
     text: `${message}`,
@@ -88,34 +87,12 @@ function mailGun(to, subject, message) {
 }
 
 
-const data = {
-  from:
-    "Mailgun Sandbox <postmaster@sandbox1e1c161b2b95402a9206d4457e6dad48.mailgun.org>",
-    // from:'Akash <akash.singh22396@gmail.com>',
-  to: "akash.singh22396@gmail.com",
-  subject: "Hello",
-  text: "Testing some Mailgun awesomness!",
-};
-
-mg.messages().send(data, function (error, body) {
-  // console.log(body);
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(body);
-  }
-});
 /**********************  End   ***********************/
 router.post("/sendEmail", async (req, res) => {
   let { subject, message, to } = req.body.data;
-  // let mailSend = await SparkPostMail(to, subject, message);
-  let mailSend = await mailGun(to, subject, message);
+  let mailSend = await SparkPostMail(to, subject, message);
   console.log("main", mailSend);
-  // console.log(req.body);
   return res.send({ message: mailSend });
-  // setTimeout(() => {
-  //   return res.send({ message: "success" });
-  // }, 2000);
 });
 
 module.exports = router;
